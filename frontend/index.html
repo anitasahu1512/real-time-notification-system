@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NotifyHub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            🔔 <span>NotifyHub</span>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active" data-filter="all">
+                🔔 Notifications
+            </button>
+
+            <button class="nav-item" data-filter="all-notifications">
+                ✉ All Notifications
+            </button>
+
+            <button class="nav-item" data-filter="unread">
+                • Unread
+            </button>
+
+            <button class="nav-item" data-filter="read">
+                ✓ Read
+            </button>
+
+            <button class="nav-item" data-filter="settings">
+                ⚙ Settings
+            </button>
+
+            <button class="nav-item" data-filter="profile">
+                👤 Profile
+            </button>
+
+            <button id="logoutButton" class="nav-item logout">
+                ↪ Logout
+            </button>
+
+        </nav>
+
+        <div class="connection-box">
+
+            <p>Real-time Status</p>
+
+            <strong id="connectionStatus">
+                Disconnected
+            </strong>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="header">
+
+            <h1 id="pageTitle">
+                Real-Time Notifications
+            </h1>
+
+            <div class="header-connection">
+
+                <span id="statusDot">●</span>
+
+                <span id="headerStatus">
+                    Disconnected
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <section id="notificationPage">
+
+            <div class="notification-header">
+
+                <div>
+
+                    <h2 id="notificationTitle">
+                        Notifications
+
+                        <span id="notificationCount">
+                            0
+                        </span>
+
+                    </h2>
+
+                </div>
+
+                <div class="header-actions">
+
+                    <button id="markAllButton">
+                        ✓ Mark all as read
+                    </button>
+
+                    <button id="clearAllButton">
+                        🗑 Clear all
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="notifications">
+
+                <div class="loading">
+                    Loading notifications...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="profilePage" class="hidden-page">
+
+            <div class="content-card">
+
+                <h2>Profile</h2>
+
+                <div class="profile-info">
+
+                    <div>
+                        <strong>Username</strong>
+                        <p id="profileUsername">-</p>
+                    </div>
+
+                    <div>
+                        <strong>Email</strong>
+                        <p id="profileEmail">-</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="settingsPage" class="hidden-page">
+
+            <div class="content-card">
+
+                <h2>Settings</h2>
+
+                <div class="setting">
+
+                    <div>
+                        <strong>Browser notifications</strong>
+                        <p>Receive notifications from NotifyHub.</p>
+                    </div>
+
+                    <button id="browserNotificationButton">
+                        Enable
+                    </button>
+
+                </div>
+
+                <div class="setting">
+
+                    <div>
+                        <strong>Notification sound</strong>
+                        <p>Play a sound when a new notification arrives.</p>
+                    </div>
+
+                    <input
+                        type="checkbox"
+                        id="soundToggle"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

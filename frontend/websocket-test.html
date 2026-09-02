@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+</head>
+<body>
+<input id="message" placeholder="Enter message">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+    const token = localStorage.getItem("access_token");
+    const socket = new WebSocket(`ws://127.0.0.1:8000/ws?token=${token}`);
+
+    socket.onopen = function() {
+        console.log("WebSocket connected");
+    };
+
+    socket.onmessage = function(event) {
+        const notification = JSON.parse(event.data);
+
+        console.log("Notification received:", notification);
+
+        console.log("ID:", notification.id);
+        console.log("Message:", notification.message);
+        console.log("Type:", notification.type);
+        console.log("Read:", notification.is_read);
+        console.log("Created At:", notification.created_at);
+    };
+
+    function sendMessage() {
+        const message = document.getElementById("message").value;
+        socket.send(message);
+    }
+</script>
+</body>
+
+</html>
