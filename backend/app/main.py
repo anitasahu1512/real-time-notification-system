@@ -6,10 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.notification import router
 from app.routes.auth import router as auth_router
-from app.database.database import Base, engine
-from app.models.notification import Notification
+
 from app.websocket.main import router as websocket_router
 from app.services.pubsub import subscribe_notifications
+from app.routes.health import router as health_router
 
 
 @asynccontextmanager
@@ -44,11 +44,9 @@ app.add_middleware(
 app.include_router(router)
 app.include_router(websocket_router)
 app.include_router(auth_router)
+app.include_router(health_router)
 
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
-
-
-Base.metadata.create_all(engine)
