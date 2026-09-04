@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://real-time-notification-system-1-c4jm.onrender.com";
 
 const existingToken = localStorage.getItem("access_token");
 
